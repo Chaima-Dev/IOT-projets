@@ -1,5 +1,8 @@
 
-Prerequisites: Make sure you have Node.js and npm installed on your machine
+Prerequisites:
+ * Make sure you have Node.js and npm installed on your machine
+
+
 Configurations : 
  * npm init -y
  * npm install express
