@@ -30,3 +30,9 @@ DHT sensor connected to the ESP32 for temperature and humidity sensing.
 2 LEDs to simulate the AC/Fan
 OpenWeatherMap API key for fetching weather data.
 Node.js installed on your machine.
+
+
+
+***Architecture***
+
+
