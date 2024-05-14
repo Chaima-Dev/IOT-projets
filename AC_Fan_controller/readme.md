@@ -35,4 +35,5 @@ Node.js installed on your machine.
 
 ***Architecture***
 
+![schema de connexion](https://github.com/shy-shai/IOT-projets/assets/165284030/4d5ea5aa-6a1c-482e-a733-74665521351c)
 
