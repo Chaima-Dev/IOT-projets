@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC and Fan Controller</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+
+<body class="container mt-5">
+
+<h1 class="mb-3"> Automatic/Manual </h1>
+
+<div class="btn-group mb-3" role="group"></div>
+<button id="setAUTOenabledTRUE" class="btn btn-primary">enable</button> 
+<button id="setAUTOenabledFALSE" class="btn btn-primary">disable</button> 
+</div>
+<div id="StateMessage" class="mb-3"> ... </div>
+
+<h1 class="mb-3">The AC </h1>
+    <button id="getStateac"  class="btn btn-info">AC state</button> 
+    <div id="acStateDisplay" class="mt-2" ></div>
+</div>
+
+<div class="btn-group mb-3" role="group"></div>
+    <button id="postTrueAC" class="btn btn-success">turn AC on </button>
+    <button id="postFalseAC" class="btn btn-success">turn AC off </button>
+</div>
+    
+    <h1 class="mb-3">The Fan </h1>
+<div class="mb-3">
+    <button id="getStatefan" class="btn btn-info">Fan state</button> 
+    <div id="fanStateDisplay"  class="mt-2"></div>
+</div>
+<div class="btn-group mb-3" role="group">
+    <button id="postTrueFan" class="btn btn-success">turn Fan on </button>
+    <button id="postFalseFan" class="btn btn-success">turn Fan off </button>
+</div>
+    <script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    document.getElementById('setAUTOenabledTRUE').addEventListener('click', () => {
+        fetch('http://your_server_ip_address:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            mutation{
+                            setAUTOenabled(enable : true)
+                           }
+                        `
+                    })
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to enable automatic mode ');
+                });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+document.getElementById('setAUTOenabledFALSE').addEventListener('click', () => {
+    fetch('http://your_server_ip_address:4000/graphql', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    query: `
+                        mutation{
+                        setAUTOenabled(enable : false)
+                       }
+                    `
+                })
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to disable automatic mode ');
+            });
+});
+});
+
+function fetchState() {
+//get l/etat du mode : enabled/disable
+fetch('http://your_server_ip_address:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            query {
+                                getStateMessage
+                            }
+                        `
+                    })
+})
+.then(response => response.json())
+.then(data => {
+    console.log("Data:", data);
+    document.getElementById('StateMessage').innerText =  data.data.getStateMessage;
+})
+.catch(error => {
+    console.error('Error:', error);
+    alert('Failed to get mode');
+});}
+  // Poll for state updates every 2 seconds
+setInterval(fetchState, 2000);         
+
+ //CONTROL THE AC THROUGHT WEB INTERFACE 
+       document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('getStateac').addEventListener('click', () => {
+                fetch('http://your_server_ip_address:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            query {
+                                getACState
+                            }
+                        `
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Data:", data);
+                    document.getElementById('acStateDisplay').innerText = 'AC State: ' + data.data.getACState;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to get AC state');
+                });
+            });
+// Add event listener for turning AC on
+                document.getElementById('postTrueAC').addEventListener('click', () => {
+                // 
+                fetch('http://your_server_ip_address:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            mutation {
+                                setACState(state: true)
+                            }
+                        `
+                    })
+                })
+
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to toggle AC state');
+                });
+            });
+
+// Add event listener for turning AC off
+            document.getElementById('postFalseAC').addEventListener('click', () => {
+                //toggleACState(false);
+                    //
+                    fetch('http://your_server_ip_address:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            mutation {
+                                setACState(state:false)
+                            }
+                        `
+                    })
+                })
+
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to toggle AC state');
+                });
+
+            });
+       });
+//CONTROL THE FAN THROUGHT WEB INTERFACE 
+document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('getStatefan').addEventListener('click', () => {
+                fetch('http://your_server_ip_address:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            query {
+                                getFanState
+                            }
+                        `
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Data:", data);
+                    document.getElementById('fanStateDisplay').innerText = 'Fan State: ' + data.data.getFanState;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to get Fan state');
+                });
+            });
+
+// Add event listener for turning AC on
+                document.getElementById('postTrueFan').addEventListener('click', () => {
+                // 
+                fetch('http://your_server_ip_address:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            mutation {
+                                setFanState(state: true)
+                            }
+                        `
+                    })
+                })
+
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to toggle fan state');
+                });
+            });
+
+// Add event listener for turning AC off
+            document.getElementById('postFalseFan').addEventListener('click', () => {
+                //toggleACState(false);
+                    //
+                    fetch('http://your_server_ip_address:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            mutation {
+                                setFanState(state:false)
+                            }
+                        `
+                    })
+                })
+
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to toggle fan state');
+                });
+
+            });
+       });
+
+       
+    </script>
+</body>
+</html>
