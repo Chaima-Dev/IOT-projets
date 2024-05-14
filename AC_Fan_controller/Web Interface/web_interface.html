@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC and Fan Controller</title>
+</head>
+<body>
+    <h1>The AC </h1>
+    <button id="getStateac">AC state</button> 
+    <div id="acStateDisplay"></div>
+    <button id="postTrueAC">turn AC on </button>
+    <button id="postFalseAC">turn AC off </button>
+    <h1>The Fan </h1>
+    <button id="getStatefan">Fan state</button> 
+    <div id="fanStateDisplay"></div>
+    <button id="postTrueFan">turn Fan on </button>
+    <button id="postFalseFan">turn Fan off </button>
+
+    <script>
+                                                                        //CONTROL THE AC THROUGHT WEB INTERFACE 
+       document.addEventListener('DOMContentLoaded', function() {
+            // Add event listener for getting AC state
+        //This line adds an event listener to the button with the id 'getStateAC'. 
+       //When this button is clicked, the function 
+            document.getElementById('getStateac').addEventListener('click', () => {
+                fetch('http://your_graphql_server_ip:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            query {
+                                getACState
+                            }
+                        `
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Data:", data);
+                    document.getElementById('acStateDisplay').innerText = 'AC State: ' + data.data.getACState;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to get AC state');
+                });
+            });
+
+
+
+
+
+
+                // Add event listener for turning AC on
+                document.getElementById('postTrueAC').addEventListener('click', () => {
+                // 
+                fetch('http://your_graphql_server_ip:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            mutation {
+                                setACState(state: true)
+                            }
+                        `
+                    })
+                })
+
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to toggle AC state');
+                });
+            });
+
+            // Add event listener for turning AC off
+            document.getElementById('postFalseAC').addEventListener('click', () => {
+                //toggleACState(false);
+                    //
+                    fetch('http://your_graphql_server_ip:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            mutation {
+                                setACState(state:false)
+                            }
+                        `
+                    })
+                })
+
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to toggle AC state');
+                });
+
+            });
+       });
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Similar functions for the fan, adjust endpoint and button ids accordingly
+                                                            //CONTROL THE FAN THROUGHT WEB INTERFACE 
+
+                                                            document.addEventListener('DOMContentLoaded', function() {
+
+            document.getElementById('getStatefan').addEventListener('click', () => {
+                fetch('http://your_graphql_server_ip:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            query {
+                                getFanState
+                            }
+                        `
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Data:", data);
+                    document.getElementById('fanStateDisplay').innerText = 'Fan State: ' + data.data.getFanState;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to get Fan state');
+                });
+            });
+
+
+
+
+
+
+                // Add event listener for turning AC on
+                document.getElementById('postTrueFan').addEventListener('click', () => {
+                // 
+                fetch('http://your_graphql_server_ip:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            mutation {
+                                setFanState(state: true)
+                            }
+                        `
+                    })
+                })
+
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to toggle fan state');
+                });
+            });
+
+            // Add event listener for turning AC off
+            document.getElementById('postFalseFan').addEventListener('click', () => {
+                //toggleACState(false);
+                    //
+                    fetch('http://your_graphql_server_ip:4000/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            mutation {
+                                setFanState(state:false)
+                            }
+                        `
+                    })
+                })
+
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to toggle fan state');
+                });
+
+            });
+       });
+
+       
+    </script>
+</body>
+</html>
