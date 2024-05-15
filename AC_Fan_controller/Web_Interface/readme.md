@@ -1,4 +1,6 @@
-web Interface : a simple styling using HTML and Bootstrap 
+***Web Interface :*** 
+
+a simple styling using HTML and Bootstrap 
 
 ![interface_web](https://github.com/shy-shai/IOT-projets/assets/165284030/43f195c1-ec2b-487a-97ee-c4c109da1d34)
 
