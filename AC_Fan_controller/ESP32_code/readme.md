@@ -1,5 +1,5 @@
 
-Install libraries : 
+***Install libraries : ***
 
 * ArduinoJson.h
 
@@ -55,5 +55,22 @@ connect to the wifi using the router credentials
 
 ***Communicate with GraphQL server***
 
+* querying and setting the state of automatic mode : by sending a query to get the state of AUTOenabled that will be used in a condition to enable/disable the automatic mode
+  
+* sending status messages : by sending a mutation to set a state message (this message is a confirmation that the mode is properly set , it only triggers after we enter the automatic mode in the code )
 
+* sending the device's IP address to the server :by sending a mutation to set the IP address (because the ESP32 can change ip address so often , it will send its address to the graphql server , to be able to receive traffic later)
+
+
+
+***The main Code***
+
+
+* monitor the current temperature/humidity of the room using a DHT sensor
+
+* fetch weather data from an API at regular intervals 
+
+* checks whether automatic mode is enabled and sends state messages accordingly
+  
+*control an air conditioner/fan in the automatic mode based on the sensor and weather data
 
