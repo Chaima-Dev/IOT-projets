@@ -11,25 +11,25 @@ Instead of owner of the café having to manually turning on/off the air-conditio
 
 ***Features***
 
-Set ESP32 IP address dynamically .
-Enable/Disable the Automatic Mode 
-Control AC and fan states (on/off) via GraphQL.
-Fetch current states of AC and fan via GraphQL.
-Display a web interface for controlling the devices manually
-Integrate with an external weather API (OpenWeatherMap) to fetch weather data.
-Retrieve real-time temperature and humidity data using a DHT sensor.
+* Set ESP32 IP address dynamically .
+* Enable/Disable the Automatic Mode 
+* Control AC and fan states (on/off) via GraphQL.
+* Fetch current states of AC and fan via GraphQL.
+* Display a web interface for controlling the devices manually
+* Integrate with an external weather API (OpenWeatherMap) to fetch weather data.
+* Retrieve real-time temperature and humidity data using a DHT sensor.
 
 
 
 ***Prerequisites***
 
 
-Arduino IDE installed on your machine.
-ESP32 microcontroller board.
-DHT sensor connected to the ESP32 for temperature and humidity sensing.
-2 LEDs to simulate the AC/Fan
-OpenWeatherMap API key for fetching weather data.
-Node.js installed on your machine.
+* Arduino IDE installed on your machine.
+* ESP32 microcontroller board.
+* DHT sensor connected to the ESP32 for temperature and humidity sensing.
+* 2 LEDs to simulate the AC/Fan
+* OpenWeatherMap API key for fetching weather data.
+* Node.js installed on your machine.
 
 
 
