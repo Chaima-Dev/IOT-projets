@@ -35,21 +35,18 @@ connect to the wifi using the router credentials
 
 * we used ArduinoJson to handle our API call
 
-* Make an HTTP GET request to the OpenWeatherMap API to fetch weather data for a specified city and country
-
-
+* make an HTTP GET request to the OpenWeatherMap API to fetch weather data for a specified city and country
 
 
 ***Handle API server***
 
+* **handle_rest_POST_request_for_AC()** : defines an endpoint to control the state of the AC. It listens for POST requests at the /AC URL. The state of the AC is toggled based on the state parameter provided in the URL-encoded body of the request.
 
-**handle_rest_POST_request_for_AC()** : defines an endpoint to control the state of the AC. It listens for POST requests at the /AC URL. The state of the AC is toggled based on the state parameter provided in the URL-encoded body of the request.
+* **The function handle_rest_GET_request_for_AC()** : defines an endpoint to retrieve the current state of the AC. It listens for GET requests at the /AC URL.
 
-**The function handle_rest_GET_request_for_AC()** : defines an endpoint to retrieve the current state of the AC. It listens for GET requests at the /AC URL.
+* **The function handle_rest_POST_request_for_Fan()** : defines an endpoint to control the state of the Fan. It listens for POST requests at the /Fan URL. The state of the Fan is toggled based on the state parameter provided in the URL-encoded body of the request.
 
-**The function handle_rest_POST_request_for_Fan()** : defines an endpoint to control the state of the Fan. It listens for POST requests at the /Fan URL. The state of the Fan is toggled based on the state parameter provided in the URL-encoded body of the request.
-
-**The function handle_rest_GET_request_for_Fan()**: defines an endpoint to retrieve the current state of the Fan. It listens for GET requests at the /Fan URL.
+* **The function handle_rest_GET_request_for_Fan()**: defines an endpoint to retrieve the current state of the Fan. It listens for GET requests at the /Fan URL.
 
 
 
@@ -72,5 +69,5 @@ connect to the wifi using the router credentials
 
 * checks whether automatic mode is enabled and sends state messages accordingly
   
-*control an air conditioner/fan in the automatic mode based on the sensor and weather data
+* control an air conditioner/fan in the automatic mode based on the sensor and weather data
 
