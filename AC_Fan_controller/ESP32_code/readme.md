@@ -24,7 +24,7 @@
 
 
 
-***Connect to EIFI***
+***Connect to WIFI***
 
 connect to the wifi using the router credentials 
 
