@@ -37,3 +37,12 @@ Node.js installed on your machine.
 
 ![schema de connexion](https://github.com/shy-shai/IOT-projets/assets/165284030/4d5ea5aa-6a1c-482e-a733-74665521351c)
 
+
+
+
+
+***UP Comming Features***
+
+* a monitoring interface for the tempeture and humidity
+
+* a form to configure which city/country you will read the global tempeture/humidity for 
