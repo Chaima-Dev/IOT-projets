@@ -7,4 +7,12 @@ The interface code includes functions to fetch the system (AC/FAN/Automatic_mode
 
 * Enable/Disable Automatic Mode: Sends a request to the server to execute the setAUTOenabled mutation with enable: true/false
 
-* 
+*Fetch and Display AC State : Sends a request to the server to execute the getACState query and displays the result in an HTML element with the ID acStateDisplay
+
+* Turn AC On/OFF : Sends a request to the server to execute the setACState mutation with state: true/false
+
+* Fetch and Display Fan State :Sends a request to the server to execute the getFanState query and displays the result in an HTML element with the ID fanStateDisplay
+  
+* Turn Fan On/OFF : Sends a request to the server to execute the setFanState mutation with state: true/false
+  
+
