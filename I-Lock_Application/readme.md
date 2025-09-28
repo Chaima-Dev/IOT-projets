@@ -1,4 +1,4 @@
-# secure smart lock
+# Secure Smart Lock
 
 ***Project Idea***
 
