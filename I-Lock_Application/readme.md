@@ -34,5 +34,9 @@ This project is a secure smart lock controllable via a mobile application with t
 
 ***Application***
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/527c07db-597b-4371-b503-935869dd6321" alt="Home Page" width="30%"/>
+  <img src="https://github.com/user-attachments/assets/14c5af2a-b515-4916-af4e-e8c660446d85" alt="Association Page" width="30%"/>
+  <img src="https://github.com/user-attachments/assets/7bbe7888-d390-49ff-b9c2-2287a637b9be" alt="OTP verification Page" width="30%"/>
+</p>
 
-| ![Home Page](https://github.com/user-attachments/assets/527c07db-597b-4371-b503-935869dd6321) |   ![Association Page](https://github.com/user-attachments/assets/14c5af2a-b515-4916-af4e-e8c660446d85) |    ![OTP verification Page](https://github.com/user-attachments/assets/7bbe7888-d390-49ff-b9c2-2287a637b9be) |
