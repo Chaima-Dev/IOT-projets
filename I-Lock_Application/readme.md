@@ -10,7 +10,7 @@ This project is a secure smart lock controllable via a mobile application with t
 * Smart lock controllable via mobile app
 * Two-factor authentication (RFID + app-based OTP)
 * Encryption for sensitive data
-* Secure cloud-hosted API for remote management
+* Cloud-hosted API for remote management
 * Integration with AWS IoT Core
 
 
@@ -24,9 +24,6 @@ This project is a secure smart lock controllable via a mobile application with t
 
 
 ***Architecture***
-
-
-
 
 ![archi.png](../../../ILock%20App/archi.png)
 
