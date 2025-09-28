@@ -2,7 +2,7 @@
 
 ***Project Idea***
 
-This project is a secure smart lock controllable via a mobile application with two-factor authentication and access logging. It aims to enhance physical security using IoT technology and cloud integration.
+This project is a secure smart lock controllable via a mobile application with two-factor authentication by an OTP. It aims to enhance physical security using IoT technology and cloud integration.
 
 
 ***Features***
@@ -20,8 +20,7 @@ This project is a secure smart lock controllable via a mobile application with t
 
 * ESP32 microcontroller with Wi-Fi module
 * RFID reader
-* Servo motor for the lock mechanism ##########
-* AWS account with access to EC2, IoT Core, S3, KMS, and Lambda
+* AWS account with access to EC2, IoT Core, S3, KMS, API Gateway and Lambda
 
 
 ***Architecture***
@@ -31,3 +30,7 @@ This project is a secure smart lock controllable via a mobile application with t
 
 ![archi.png](../../../ILock%20App/archi.png)
 
+
+***Application***
+
+| ![1000415501.jpg](../../../ILock%20App/1000415501.jpg) |    ![1000415503.jpg](../../../ILock%20App/1000415503.jpg) |    ![1000415502.jpg](../../../ILock%20App/1000415502.jpg) |
